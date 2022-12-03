@@ -1,4 +1,3 @@
-(executable
- (public_name aoc2022)
- (name main)
- (libraries aoc2022 camlp-streams))
+(executables
+ (public_names aoc2022)
+ (names day1))
