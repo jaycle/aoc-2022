@@ -1,6 +1,6 @@
 let () = 
   let acc = fun accum l -> l :: accum in
-  let folded = Seq.fold_left acc [] (Files.read_file "day1-1.txt" ) in
+  let folded = Seq.fold_left acc [] (Files.read_file "day1.txt" ) in
   let lines = List.rev folded in
   let sum_cals l = function
     | "" -> 0 :: l
