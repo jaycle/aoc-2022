@@ -17,8 +17,8 @@ let () =
   let _ = sorted |> List.hd |> string_of_int |> print_endline in
 
   (* Pt. 2 *)
-  let rec top3 i sum = match i with
-    | i when i < 3 -> top3 (i + 1) ((List.nth sorted i) + sum) 
+  let rec top3 ?(i=0) ?(sum=0) () = match i with
+    | i when i < 3 -> top3 ~i:(i + 1) ~sum:((List.nth sorted i) + sum) ()
     | _ -> sum in
   
-  top3 0 0 |> string_of_int |> print_endline
+  top3 () |> string_of_int |> print_endline
