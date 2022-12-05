@@ -37,7 +37,7 @@ let () =
   let lines = Seq.fold_left 
     (fun acc l -> l :: acc)
     []
-    (Files.read_file "day2.txt") in
+    (Lib.Files.read_file "day2.txt") in
 
   (* Pt 1 *)
   let pt1 = List.map (fun x -> x |> hands_of_line |> scores) in

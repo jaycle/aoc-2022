@@ -1,3 +1,5 @@
+open Lib;;
+
 let () = 
   let acc = fun accum l -> l :: accum in
   let folded = Seq.fold_left acc [] (Files.read_file "day1.txt" ) in
