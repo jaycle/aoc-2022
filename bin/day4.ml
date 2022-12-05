@@ -7,10 +7,8 @@ type pairs =
 let to_ranges line = Scanf.sscanf line "%d-%d,%d-%d" (fun a b c d -> {one = (a, b); two = (c, d)})
 
 let is_contained (p : pairs) =
-  let min_range = min (fst p.one) (fst p.two) in
-  let max_range = max (snd p.one) (snd p.two) in
-  (min_range, max_range) = p.one || (min_range, max_range) = p.two
-  
+  fst p.one <= fst p.two && snd p.two <= snd p.one || (* one encloses two *)
+  fst p.two <= fst p.one && snd p.one <= snd p.two    (* two encloses one *)
 
 let lines = Seq.fold_left 
   (fun acc l -> l :: acc)
