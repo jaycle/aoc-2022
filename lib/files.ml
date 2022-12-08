@@ -21,3 +21,16 @@ let split_list list n =
       | [] -> [[]; []] in
 
   split (List.rev list) [] n
+
+let pick cnt lst = 
+  let rec loop picked l =
+    if List.length picked = cnt then
+      List.rev picked
+    else
+      match l with
+      | x :: xs -> loop (x :: picked) xs
+      | _ -> picked in
+  if List.length lst >= cnt then
+    loop [] lst
+  else
+    raise (Invalid_argument "Cannot pick more than list length")
